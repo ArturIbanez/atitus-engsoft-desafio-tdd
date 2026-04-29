@@ -10,6 +10,11 @@ describe('ServicoNotificacao', () => {
     const service = new ServicoNotificacao(mockGateway);
     await service.enviarBoasVindas({ email: 'aluno@atitus.edu.br' });
 
+    expect(mockGateway.enviar).toHaveBeenCalledWith(
+      'aluno@atitus.edu.br', 
+      'Bem-vindo!'
+    );
+
     expect(mockGateway.enviar).toHaveBeenCalledWith('aluno@atitus.edu.br', 'Bem-vindo!');
   });
 });
